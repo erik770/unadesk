@@ -1,0 +1,10 @@
+<tui-loader class="loader" [overlay]="true" [showLoader]="isLoading">
+  <div class="list-wrapper">
+    @for (item of users; track item.id) {
+    <app-user-card
+      [user]="item"
+      [actionTemplate]="itemActionTemplate"
+    ></app-user-card>
+    }
+  </div>
+</tui-loader>

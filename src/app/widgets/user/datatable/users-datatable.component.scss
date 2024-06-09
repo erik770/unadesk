@@ -1,0 +1,70 @@
+:host {
+  overflow: auto;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 1.2rem;
+  padding: 0.5rem;
+}
+
+.loader {
+  height: 100%;
+  overflow: auto;
+}
+
+.table {
+  border-collapse: collapse !important;
+  width: 100%;
+
+  th {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 2;
+    height: 56px;
+    padding: 12px 24px;
+    color: var(--tui-text-02);
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: start;
+    vertical-align: middle;
+    border: none;
+    border-radius: 12px 12px 0 0;
+  }
+
+  tbody {
+    tr {
+      border-top: 1px solid var(--tui-secondary-active);
+
+      td {
+        padding: 16px 24px;
+        color: var(--tui-font-text);
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.avatar-column,
+.action-column {
+  width: 80px;
+  min-width: 80px;
+}
+
+.name-column {
+  width: 200px;
+  min-width: 100px;
+}
+
+.description-column {
+  width: 400px;
+  min-width: 300px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}

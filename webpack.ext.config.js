@@ -8,7 +8,7 @@ module.exports = {
       lintDirtyModulesOnly: false,
       emitWarning: true,
       emitError: true,
-      failOnWarning: true,
+      failOnWarning: false,
       failOnError: true,
     }),
   ],

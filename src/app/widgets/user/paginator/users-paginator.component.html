@@ -1,0 +1,28 @@
+@if (total) {
+
+<tui-pagination
+  [focusable]="true"
+  [length]="math.ceil(total / limit)"
+  [index]="page"
+  [activePadding]="2"
+  [sidePadding]="2"
+  (indexChange)="handleChangePage($event)"
+></tui-pagination>
+} @else {
+<span></span>
+}
+<div class="paginator-counter-limiter">
+  <div class="paginator-counter-limiter-text">Показать:</div>
+  <div tuiGroup class="group" [collapsed]="true">
+    <tui-radio-block
+      *ngFor="let limit of limitParams"
+      [formControl]="limitControl"
+      contentAlign="right"
+      size="s"
+      [item]="limit"
+      [hideRadio]="true"
+    >
+      {{ limit }}
+    </tui-radio-block>
+  </div>
+</div>

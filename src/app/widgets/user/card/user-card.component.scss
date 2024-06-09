@@ -1,0 +1,37 @@
+:host {
+  width: 100%;
+  min-width: 320px;
+  max-width: 100%;
+  padding: 1.5rem;
+  height: 100%;
+  background-color: #fff;
+  border: 2px solid var(--tui-secondary);
+  border-radius: 1.5rem;
+  height: 10rem;
+  display: flex;
+}
+
+.content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  color: var(--tui-font-text);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.subtitle {
+  color: var(--tui-text-01);
+  font-size: 12px;
+}
+
+.header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}

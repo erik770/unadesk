@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.content-wrapper {
+  align-self: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 1rem;
+  flex: 1 1 auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.table {
+  overflow: auto;
+}
+
+.radio-block {
+  width: 115px;
+}
+
+.no-result {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 1.2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--tui-font-text);
+  font-weight: 500;
+  font-size: 20px;
+
+  &-subtitle {
+    color: var(--tui-text-02);
+    font-weight: 400;
+    font-size: 15px;
+  }
+}

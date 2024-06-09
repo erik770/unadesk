@@ -1,0 +1,79 @@
+<ng-container *tuiLet="vm$ | async as vm">
+  @if(vm) {
+  <div class="content-wrapper">
+    <app-users-filters
+      [filters]="vm.filters"
+      (filterChange)="handleFilterChange($event)"
+      [extraActionTemplate]="showModeToggler"
+    ></app-users-filters>
+    <ng-template #showModeToggler>
+      <form tuiGroup [formGroup]="form" class="group" [collapsed]="true">
+        <tui-radio-block
+          class="radio-block"
+          contentAlign="right"
+          formControlName="listDisplayMode"
+          [item]="showModes.DATATABLE"
+          size="s"
+        >
+          Строчки
+        </tui-radio-block>
+        <tui-radio-block
+          class="radio-block"
+          contentAlign="right"
+          formControlName="listDisplayMode"
+          [item]="showModes.CARDS"
+          size="s"
+        >
+          Карточки
+        </tui-radio-block>
+      </form>
+    </ng-template>
+    @if (vm.items.length === 0 && !vm.isLoading) {
+    <div class="no-result">
+      <span>Нет результатов</span>
+      <span class="no-result-subtitle">Попробуйте изменить фильтры</span>
+    </div>
+    } @else { @switch (form.controls.listDisplayMode.getRawValue()) { @case
+    (showModes.DATATABLE) {
+    <app-users-datatable
+      class="table"
+      [users]="vm.items"
+      [isLoading]="vm.isLoading"
+      [itemActionTemplate]="actionTemplate"
+    >
+    </app-users-datatable>
+    } @case (showModes.CARDS) {
+    <app-users-card-list
+      [users]="vm.items"
+      [isLoading]="vm.isLoading"
+      [itemActionTemplate]="actionTemplate"
+    >
+    </app-users-card-list>
+    } }
+    <ng-template #actionTemplate let-item>
+      <button
+        tuiIconButton
+        type="button"
+        icon="tuiIconTrash"
+        #deleteUserDirective="deleteUserDirective"
+        appDeleteUser
+        [id]="item.id"
+        [name]="item.name"
+        [showLoader]="(deleteUserDirective.loading$ | async) ?? false"
+        size="s"
+        appearance="flat"
+        (actionSuccess)="updateDatatable()"
+        (actionFail)="updateDatatable()"
+      ></button>
+    </ng-template>
+    }
+    <app-users-paginator
+      [limit]="vm.limit"
+      [page]="vm.page"
+      [total]="vm.total"
+      (changeLimit)="handleLimitChange($event)"
+      (changePage)="handlePageChange($event)"
+    ></app-users-paginator>
+  </div>
+  }
+</ng-container>

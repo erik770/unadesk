@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100vw;
+  height: 100vh;
+  padding: 16px;
+  overflow: hidden;
+  background: #eff1f4;
+}
+
+.routes {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row nowrap;
+  min-width: 0;
+  height: 100%;
+}

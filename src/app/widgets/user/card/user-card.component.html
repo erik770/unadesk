@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="header">
+    <tui-avatar [text]="user.name" size="s" [autoColor]="true"></tui-avatar>
+    <span class="title">
+      {{ user.name }}
+    </span>
+    @if (!user.isActive) {
+    <tui-tooltip
+      content="Пользователь не активен"
+      direction="top"
+    ></tui-tooltip>
+    }
+  </div>
+  <span class="subtitle">
+    {{ user.name | appGenerateDescription }}
+  </span>
+</div>
+@if (actionTemplate) {
+<ng-container
+  [ngTemplateOutlet]="actionTemplate"
+  [ngTemplateOutletContext]="{ $implicit: user }"
+></ng-container>
+}

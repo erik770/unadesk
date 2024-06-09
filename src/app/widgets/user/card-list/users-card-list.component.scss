@@ -1,0 +1,18 @@
+:host {
+  overflow: auto;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 1.2rem;
+  padding: 0.5rem;
+}
+
+.list-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.loader {
+  height: 100%;
+  overflow: auto;
+}

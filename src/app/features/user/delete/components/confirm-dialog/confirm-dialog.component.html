@@ -1,0 +1,18 @@
+<p class="text">
+  Вы точно хотите удалить пользователя "{{ context.data.name }}" ?
+</p>
+<div class="buttons">
+  <button tuiButton type="button" appearance="primary" size="s" (click)="ok()">
+    Удалить
+  </button>
+  <button
+    tuiButton
+    type="button"
+    appearance="flat"
+    size="s"
+    class="cancel"
+    (click)="cancel()"
+  >
+    Отмена
+  </button>
+</div>

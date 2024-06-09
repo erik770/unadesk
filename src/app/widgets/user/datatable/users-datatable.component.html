@@ -1,0 +1,58 @@
+<ng-container>
+  <tui-loader class="loader" [overlay]="true" [showLoader]="isLoading">
+    <table
+      tuiTable
+      class="tui-table table"
+      [ngClass]="{ loading: isLoading, loaded: isLoading === false }"
+    >
+      <thead>
+        <tr class="tui-table__tr">
+          <th class="tui-table__th avatar-column"></th>
+          <th class="tui-table__th name-column">Имя</th>
+          <th class="tui-table__th description-column">Описание</th>
+          @if (itemActionTemplate) {
+          <th class="tui-table__th action-column"></th>
+          }
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (item of users; track item.id) {
+        <tr class="tui-table__tr">
+          <td class="tui-table_td">
+            <tui-avatar
+              [text]="item.name"
+              size="s"
+              [autoColor]="true"
+            ></tui-avatar>
+          </td>
+          <td class="tui-table_td">
+            <div [title]="item.name" class="name">
+              {{ item.name }}
+              @if (!item.isActive) {
+              <tui-tooltip
+                content="Пользователь не активен"
+                direction="top"
+              ></tui-tooltip>
+              }
+            </div>
+          </td>
+          <td class="tui-table_td">
+            {{ item.name | appGenerateDescription }}
+          </td>
+          @if (itemActionTemplate) {
+          <td class="tui-table_td">
+            <ng-container
+              [ngTemplateOutlet]="itemActionTemplate"
+              [ngTemplateOutletContext]="{ $implicit: item }"
+            >
+            </ng-container>
+          </td>
+          }
+        </tr>
+
+        }
+      </tbody>
+    </table>
+  </tui-loader>
+</ng-container>

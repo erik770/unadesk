@@ -1,0 +1,9 @@
+<form [formGroup]="form" class="form">
+  <tui-input class="input-field" formControlName="name" tuiTextfieldSize="s">
+    Введите имя
+    <input tuiTextfield type="name" />
+  </tui-input>
+</form>
+@if (extraActionTemplate) {
+<ng-container [ngTemplateOutlet]="extraActionTemplate"></ng-container>
+}
