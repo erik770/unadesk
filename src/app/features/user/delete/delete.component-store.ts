@@ -1,6 +1,7 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
 import { USER_API_SERVICE } from '@entities/tokens';
-import { tapResponse, ComponentStore } from '@ngrx/component-store';
+import { ComponentStore } from '@ngrx/component-store';
+import { tapResponse } from '@ngrx/operators';
 import { TuiAlertService } from '@taiga-ui/core';
 import { Observable, Subject, switchMap, take, tap } from 'rxjs';
 
